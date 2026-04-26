@@ -23,7 +23,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - cowcalftracker_postgres_data:/var/lib/postgresql/data
+      - cowcalftracker_postgres_data:/var/lib/postgresql
 
 volumes:
   cowcalftracker_postgres_data:
