@@ -1,4 +1,4 @@
-using CowCalfTracker.Api.Features;
+using CowCalfTracker.Api.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +16,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-HelloWorld.HelloEndpoint(app);
+app.MapEndpoints();
 
 app.Run();

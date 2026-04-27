@@ -1,5 +1,8 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src/CowCalfTracker.Api/CowCalfTracker.Api.csproj" />
+    <Project Path="src/CowCalfTracker.Application/CowCalfTracker.Application.csproj" />
+    <Project Path="src/CowCalfTracker.Domain/CowCalfTracker.Domain.csproj" />
+    <Project Path="src/CowCalfTracker.Infrastructure/CowCalfTracker.Infrastructure.csproj" />
   </Folder>
 </Solution>

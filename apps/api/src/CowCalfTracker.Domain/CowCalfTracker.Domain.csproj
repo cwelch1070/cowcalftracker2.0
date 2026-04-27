@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../CowCalfTracker.Infrastructure/CowCalfTracker.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
