@@ -23,4 +23,15 @@ namespace CowCalfTracker.Api.Features
 
         private record Request(string? Name, int TagNumber);
     }
+
+    public class HealthCheck : IEndpoint
+    {
+        public void MapEndpoint(IEndpointRouteBuilder app)
+        {
+            app.MapGet("/", async (CancellationToken cancelationToken) => {
+                return Results.Ok("API is up and running.");
+            })
+            .WithName(nameof(HealthCheck));
+        }
+    }
 }
