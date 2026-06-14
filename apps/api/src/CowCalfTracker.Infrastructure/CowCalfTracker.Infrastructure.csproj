@@ -14,4 +14,9 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../CowCalfTracker.Application/CowCalfTracker.Application.csproj" />
+    <ProjectReference Include="../CowCalfTracker.Domain/CowCalfTracker.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

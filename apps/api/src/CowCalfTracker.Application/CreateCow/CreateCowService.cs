@@ -1,13 +1,16 @@
+using CowCalfTracker.Application.abstractions;
 using CowCalfTracker.Domain.Cattle;
 
 namespace CowCalfTracker.Application.CreateCow
 {
-    public class CreateCowService()
+    public sealed class CreateCowService(ICowRepository cowRepository)
     {
-        public static async Task<Cow> CreateCowHandler(string? name, int tagNumber) {
+        public async Task<Cow> CreateCowHandler(string? name, int tagNumber, CancellationToken cancellationToken) {
             var cow = Cow.Create(name, tagNumber);
 
-            return cow;
+            var result = await cowRepository.AddAsync(cow, cancellationToken);
+
+            return result;
         }
     }
 }
