@@ -1,5 +1,4 @@
 using CowCalfTracker.Api.Endpoints;
-using CowCalfTracker.Application.abstractions;
 using CowCalfTracker.Application.CreateCow;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +8,10 @@ namespace CowCalfTracker.Api.Features
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapPost("/cattle", async ([FromBody]Request request, CreateCowService createCowService, CancellationToken cancellationToken) =>
+            app.MapPost("/cattle", async ([FromBody]Request request, CreateCowHandler createCowHandler, CancellationToken cancellationToken) =>
             {
-                var result = await createCowService
-                    .CreateCowHandler(
+                var result = await createCowHandler
+                    .CreateAsync(
                         request.Name, 
                         request.TagNumber,
                         cancellationToken

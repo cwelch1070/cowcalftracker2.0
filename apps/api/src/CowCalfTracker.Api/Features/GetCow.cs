@@ -1,5 +1,5 @@
 using CowCalfTracker.Api.Endpoints;
-using CowCalfTracker.Application.abstractions;
+using CowCalfTracker.Application.GetCow;
 
 namespace CowCalfTracker.Api.Features
 {
@@ -7,9 +7,9 @@ namespace CowCalfTracker.Api.Features
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapGet("/cattle/{id:guid}", async (Guid id, ICowRepository cowRepository, CancellationToken cancellationToken) =>
+            app.MapGet("/cattle/{id:guid}", async (Guid id, GetCowHandler getCowHandler, CancellationToken cancellationToken) =>
             {
-                var cow = await cowRepository.GetByIdAsync(id, cancellationToken);
+                var cow = await getCowHandler.GetByIdAsync(id, cancellationToken);
 
                 return cow is null
                     ? Results.NotFound()

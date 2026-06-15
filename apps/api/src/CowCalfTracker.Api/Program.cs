@@ -1,5 +1,6 @@
 using CowCalfTracker.Api.Endpoints;
 using CowCalfTracker.Application.CreateCow;
+using CowCalfTracker.Application.GetCow;
 using CowCalfTracker.Infrastructure;
 using CowCalfTracker.Infrastructure.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-builder.Services.AddScoped<CreateCowService>();
+builder.Services.AddScoped<CreateCowHandler>();
+builder.Services.AddScoped<GetCowHandler>();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 var app = builder.Build();
